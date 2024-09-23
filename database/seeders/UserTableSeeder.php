@@ -42,14 +42,10 @@ class UserTableSeeder extends Seeder
         ];
 
         foreach($users as $user) {
-            $data = User::where('email', $user['email']);
-
-            if(isset($data)) {
-                $data->update($user);
-            }else {
-                User::create($user);
-            }
-
+            User::updateOrCreate(
+                ['email' => $user['email']],
+                $user
+            );
         }
     }
 }
