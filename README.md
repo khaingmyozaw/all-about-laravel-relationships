@@ -1,3 +1,12 @@
+About Laravel Relationships
+All about laravel relationships I collected as utility reason.
+
+<ol>
+<li>One to One Relationship</li>
+<li>One to Many Relationship</li>
+<li>One to Many Through Relationship</li>
+</ol>
+
 ## Installation
 
 ```bash
@@ -16,29 +25,20 @@ php artisan key:generate
 php artisan migrate --seed
 ```
 
-## For One to One Relationship
-Check on methods in ```User``` and ```Lamborghini``` models named
 
-```bash
-lamborghini
-```
-```bash
-user
-```
+## 1. One to One Relationship
+Check methods on ```User``` and ```Lamborghini``` models named
+
+```lamborghini```, ```user```
 
 Tables are named as ```users``` and ```lamborghinis```
 
-## For One to Many Relationship
-Check on methods in ```User``` and ```Shoe``` models named
+## 2. One to Many Relationship
+Check methods on ```User``` and ```Shoe``` models named
 
-```bash
-shoes
-```
-```bash
-user
-```
+```shoes```,```user```
 
-## For One to Many Through Relationship
-Check on methods in ```Project```, ```Client``` and ```Referral``` models named
+## 3. One to Many Through Relationship
+Check methods on ```Project```, ```Client``` and ```Referral``` models named
 
 ```clients```, ```referrals```, ```project```, ```referrals```, ```client```
