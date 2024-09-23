@@ -2,49 +2,48 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Project;
+use App\Models\Client;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserTableSeeder extends Seeder
+class ClientTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $users = [
+        // $bitcoin = Project::first();
+        $clients = [
             [
                 'name' => 'John Doe',
                 'email' => 'john@example.com',
                 'password' => bcrypt('password'),
+                // 'project_id' => $bitcoin->id,
             ],
             [
                 'name' => 'Jane Smith',
                 'email' => 'jane@example.com',
                 'password' => bcrypt('password'),
+                // 'project_id' => $bitcoin->id,
             ],
             [
                 'name' => 'Alice Johnson',
                 'email' => 'alice@example.com',
                 'password' => bcrypt('password'),
-            ],
-            [
-                'name' => 'Bob Brown',
-                'email' => 'bob@example.com',
-                'password' => bcrypt('password'),
-            ],
-            [
-                'name' => 'Charlie',
-                'email' => 'charlie@example.com',
-                'password' => bcrypt('password'),
+                // 'project_id' => $bitcoin->id,
             ],
         ];
 
-        foreach($users as $user) {
-            User::updateOrCreate(
-                ['email' => $user['email']],
-                $user
+        foreach($clients as $client)
+        {
+            Client::updateOrCreate(
+                [
+                    'email' => $client['email'],
+                    'project_id' => Project::all()->random()->id,
+                ],
+                $client
             );
         }
     }

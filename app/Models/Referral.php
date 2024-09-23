@@ -6,20 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Shoe extends Model
+class Referral extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name', 'size', 'user_id',
+        'name', 'email', 'password', 'client_id',
     ];
 
-    /**
-     * 2. One to Many Relationship
-     * multpile shoes are owned by each User.
-     */
-    public function user(): BelongsTo
+    public function client(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Client::class);
     }
 }

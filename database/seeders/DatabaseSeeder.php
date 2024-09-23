@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             LamborghiniTableSeeder::class,
             ShoeTableSeeder::class,
+            ProjectTableSeeder::class,
+            ClientTableSeeder::class,
+            ReferralTableSeeder::class,
         ]);
     }
 }

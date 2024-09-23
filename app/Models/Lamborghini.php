@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Lamborghini extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'model', 'user_id',
+    ];
+
     /**
      * 1. One to One Relationship
      * This Lamborghini car belongs to a User 
