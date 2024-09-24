@@ -38,7 +38,7 @@ Route::get('/one-to-many-though', function() {
     // Seeing clients and referrals from Bitcoin Model
     dump(Project::first()->toArray());
     dump(Project::first()->clients->toArray());
-    dd(Project::first()->referrals->toArray());
+    dd(Project::first()->clientReferrals->toArray());
 
     // Seeing referrals from Client Model
     // dump(Client::get()->toArray());

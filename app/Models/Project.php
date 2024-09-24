@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class Project extends Model
 {
@@ -31,8 +32,18 @@ class Project extends Model
     /**
      * This project related referrals through users
      */
-    public function referrals(): HasManyThrough
+    public function clientReferrals(): HasManyThrough
     {
-        return $this->hasManyThrough(Referral::class, Client::class, 'project_id', 'client_id');
+        return $this->hasManyThrough(Referral::class, Client::class);
+        // return $this->hasManyThrough(Referral::class, Client::class, 'project_id', 'client_id'); <= format
+    }
+
+    /**
+     * If HasOneThrough , it is easy
+     */
+    public function clientReferral(): HasOneThrough
+    {
+        return $this->hasOneThrough(Referral::class, Client::class);
+        // return $this->hasManyThrough(Referral::class, Client::class, 'project_id', 'client_id'); <= format
     }
 }
