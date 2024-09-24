@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -67,5 +69,20 @@ class User extends Authenticatable
     public function shoes(): HasMany
     {
         return $this->hasMany(Shoe::class);
+    }
+
+    /**
+     * 4. Many to Many Relationship
+     * 
+     * Users can have many groups
+     * 
+     * Notice: naming convention is pleural
+     */
+    public function groups(): BelongsToMany
+    {
+        return $this->belongsToMany(Group::class)
+                    ->using(GroupUser::class)
+                    ->withPivot('active')
+                    ->withTimestamps();
     }
 }

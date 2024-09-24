@@ -2,8 +2,13 @@
 
 use App\Models\Project;
 use App\Models\Client;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', function() {
+    return view('index');
+});
 
 Route::get('/one-to-one', function () {
 
@@ -43,4 +48,21 @@ Route::get('/one-to-many-though', function() {
     // Seeing referrals from Client Model
     // dump(Client::get()->toArray());
     // dump(Client::where('id', 3)->first()->referrals->toArray());
+});
+
+Route::get('/many-to-many', function() {
+    dump(Group::get()->toArray());
+    dump(User::get()->toArray());
+
+    echo 'Attaching users from group';
+    dump(Group::first()->users->toArray());
+
+    echo 'Attaching grpups from user';
+    dump(User::first()->groups->toArray());
+
+    echo 'Joined data';
+    dump(Group::first()->users[0]->pivot->created_at->format('d/m/y'));
+
+    echo 'Active status';
+    dump(Group::first()->users[0]->pivot->active ? 'Active' : 'Inactive');
 });

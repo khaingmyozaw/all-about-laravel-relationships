@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             ProjectTableSeeder::class,
             ClientTableSeeder::class,
             ReferralTableSeeder::class,
+            GroupTableSeeder::class,
+            GroupUserTableSeeder::class,
         ]);
     }
 }
