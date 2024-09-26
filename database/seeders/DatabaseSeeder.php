@@ -25,6 +25,9 @@ class DatabaseSeeder extends Seeder
             ReferralTableSeeder::class,
             GroupTableSeeder::class,
             GroupUserTableSeeder::class,
+            CustomerTableSeeder::class,
+            EmployeeTableSeeder::class,
+            CarTableSeeder::class,
         ]);
     }
 }

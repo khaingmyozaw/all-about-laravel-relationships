@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -84,5 +85,14 @@ class User extends Authenticatable
                     ->using(GroupUser::class)
                     ->withPivot('active')
                     ->withTimestamps();
+    }
+
+    // This model also relates to car model
+    /**
+     * morphOne(Model, 'method');
+     */
+    public function car(): MorphOne
+    {
+        return $this->morphOne(Car::class, 'carable');
     }
 }
