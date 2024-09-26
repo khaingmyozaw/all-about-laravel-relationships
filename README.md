@@ -43,10 +43,25 @@ Check methods on ```Project```, ```Client``` and ```Referral``` models named
 
 ```clients```, ```referrals```, ```project```, ```referrals```, ```client```
 
+## 4. Polymorphic
+Here, this is a little advance. 
 
+<detail>
+Polymorphic relationships in Laravel allow a model to belong to more than one other model on a single association. This is useful when different models (e.g., Customer, Employee, User) share a common relationship with another model (e.g., Car) without having to duplicate database tables or create separate foreign key columns.
+</detail>
 
+Check methods on ```Customer```, ```Employee```, ```Car``` and ```User``` models named
+```car``` and ```carable```
+
+After running seeder, you can test it with ```laravel tinker```
+
+```bash
+php artisan tinker
 ```
-all-about-laravel-relationships (master*) » php artisan tinker                                                          ~/Activities/all-about-laravel-relationships  
+Get first customer data for testing and then try to insert data into car migration.
+
+<pre>
+all-about-laravel-relationships (master*) » php artisan tinker
 Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
 > $customer = \App\Models\Customer::first();
 = App\Models\Customer {#5509
@@ -65,6 +80,4 @@ Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
     created_at: "2024-09-26 04:39:33",
     id: 1,
   }
-
-> 
-```
+</pre>
