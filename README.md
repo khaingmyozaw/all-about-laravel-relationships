@@ -81,3 +81,43 @@ Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
     id: 1,
   }
 </pre>
+
+Notice ```carable_type``` column. Laravel input the hole namespace into it.
+You can modify it at ```boot()``` in ```app\Providers\AppServiceProvider.php``` like
+
+<pre>
+<code>
+   public function boot(): void
+    {
+        Relation::morphMap([
+            'employee' => 'App\Models\Employee',
+            'customer' => 'App\Models\Customer',
+            'user'     => 'App\Models\User',
+        ]);
+    }
+</code>
+</pre>
+
+Now, when you try as begin, you should see like this.
+
+<pre>
+all-about-laravel-relationships (master*) » php artisan tinker
+Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
+> $employee = \App\Models\Employee::first();
+= App\Models\Employee {#5509
+    id: 1,
+    name: "Justin Keber",
+    created_at: "2024-09-26 04:35:35",
+    updated_at: "2024-09-26 04:35:35",
+  }
+
+> $employee->car()->create(['name'=>'Toyota']);
+= App\Models\Car {#5158
+    name: "BMW",
+    carable_id: 1,
+    carable_type: "employee",
+    updated_at: "2024-09-26 04:39:33",
+    created_at: "2024-09-26 04:39:33",
+    id: 1,
+  }
+</pre>
