@@ -21,6 +21,9 @@
         <li>
             <a href="/many-to-many">Many To Many</a>
         </li>
+        <li>
+            <a href="/one-to-one-polymorphic">One To One (Polymorphic)</a>
+        </li>
     </ol>
 </body>
 </html>
