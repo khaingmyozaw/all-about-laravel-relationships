@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
             'employee' => 'App\Models\Employee',
             'customer' => 'App\Models\Customer',
             'user'     => 'App\Models\User',
+            'thread'   => 'App\Models\Thread',
+            'article'  => 'App\Models\Article',
         ]);
     }
 }

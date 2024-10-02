@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
             CustomerTableSeeder::class,
             EmployeeTableSeeder::class,
             CarTableSeeder::class,
+            ThreadTableSeeder::class,
+            ArticleTableSeeder::class,
         ]);
     }
 }

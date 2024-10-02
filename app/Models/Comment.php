@@ -10,6 +10,7 @@ class Comment extends Model
 {
     use HasFactory;
     protected $fillable = ['contents'];
+    
     public function commentable(): MorphTo
     {
         return $this->morphTo();

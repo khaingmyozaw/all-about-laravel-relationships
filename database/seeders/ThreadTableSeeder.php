@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Thread;
+use Carbon\Factory;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class ThreadTableSeeder extends Seeder
 {
@@ -12,13 +14,12 @@ class ThreadTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $threads = [
-        ['body' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-        ['body' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-        ];
+        $faker = Faker::create();
         
-        foreach($threads as $thread) {
-            Thread::updateOrCreate($thread);
+        foreach(range(1, 3) as $thread) {
+            Thread::create([
+                'body'  => $faker->paragraph(),
+            ]);
         }
     }
 }

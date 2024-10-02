@@ -12,6 +12,6 @@ class Article extends Model
 
     public function comments(): MorphMany
     {
-        $this->morphMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 }
