@@ -43,7 +43,7 @@ Check methods on ```Project```, ```Client``` and ```Referral``` models named
 
 ```clients```, ```referrals```, ```project```, ```referrals```, ```client```
 
-## 4. Polymorphic
+## 4. Polymorphic (one to one)
 Here, this is a little advance. 
 
 <detail>
@@ -121,3 +121,14 @@ Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
     id: 1,
   }
 </pre>
+
+## 5. Polymorphic (many to many)
+It is similar to the upper one.
+
+But I run ```faker``` that can seeder be faster to write.
+
+Install faker
+
+```bash
+composer require fakerphp/faker
+```
