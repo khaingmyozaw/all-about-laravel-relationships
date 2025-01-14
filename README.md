@@ -65,7 +65,7 @@ php artisan tinker
 ```
 Get first customer data for testing and then try to insert data into car migration.
 
-<pre>
+```bash
 all-about-laravel-relationships (master*) » php artisan tinker
 Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
 > $customer = \App\Models\Customer::first();
@@ -85,13 +85,12 @@ Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
     created_at: "2024-09-26 04:39:33",
     id: 1,
   }
-</pre>
+```
 
 Notice ```carable_type``` column. Laravel input the hole namespace into it.
 You can modify it at ```boot()``` in ```app\Providers\AppServiceProvider.php``` like
 
-<pre>
-<code>
+```php
    public function boot(): void
     {
         Relation::morphMap([
@@ -100,12 +99,11 @@ You can modify it at ```boot()``` in ```app\Providers\AppServiceProvider.php``` 
             'user'     => 'App\Models\User',
         ]);
     }
-</code>
-</pre>
+```
 
 Now, when you try as begin, you should see like this.
 
-<pre>
+```bash
 all-about-laravel-relationships (master*) » php artisan tinker
 Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
 > $employee = \App\Models\Employee::first();
@@ -125,7 +123,7 @@ Psy Shell v0.12.4 (PHP 8.2.23 — cli) by Justin Hileman
     created_at: "2024-09-26 04:39:33",
     id: 1,
   }
-</pre>
+```
 
 ## 6. Polymorphic (many to many)
 It is similar to the upper one.
